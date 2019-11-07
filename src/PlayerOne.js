@@ -1,6 +1,11 @@
 import React from 'react'
 
 function PlayerOne(props) {
+    let buttonText;
+    if(!props.flag)
+        buttonText="This user is playing now"
+    else
+        buttonText="Play"
     return (
         
         <div style={{border:'3px solid black', position: "relative", padding:"10px"}}>
@@ -8,8 +13,8 @@ function PlayerOne(props) {
             <label>Name: {props.name}</label>
             <br/>
             <label>Played number of times: </label>
-            <button style={{position: "absolute", right: "10px", bottom:"5px"}}>
-                Play
+            <button style={{position: "absolute", right: "10px", bottom:"5px"}}onClick={(e) => props.PlayerOneEventHandler(e)} disabled={!props.flag}>
+                {buttonText}
             </button>
         </div>
     );
