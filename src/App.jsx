@@ -1,7 +1,15 @@
 import React from 'react'
+import GameMaster from './GameMaster'
 
-const App = () => (
-  <h1>Minimal React</h1>  
-)
-
+class App extends React.Component {
+  
+  render() {
+      return (
+          <div >
+            <GameMaster/>
+          </div>
+          
+      );
+  }
+}
 export default App
