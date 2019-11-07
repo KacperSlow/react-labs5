@@ -11,7 +11,7 @@ function PlayerTwo(props) {
             <div><b>Player Two</b></div>
             <label>Name: {props.name} </label>
             <br/>
-            <label>Played number of times: </label>
+            <label>Played number of times: {props.numbersPlay}</label>
             <button style={{position: "absolute", right: "10px", bottom:"5px"}} onClick={(e) => props.PlayerTwoEventHandler(e)}disabled={props.flag}>
                 {buttonText}
             </button>

@@ -12,7 +12,7 @@ function PlayerOne(props) {
             <div><b>Player One</b></div>
             <label>Name: {props.name}</label>
             <br/>
-            <label>Played number of times: </label>
+            <label>Played number of times: {props.numbersPlay}</label>
             <button style={{position: "absolute", right: "10px", bottom:"5px"}}onClick={(e) => props.PlayerOneEventHandler(e)} disabled={!props.flag}>
                 {buttonText}
             </button>

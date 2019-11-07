@@ -7,7 +7,9 @@ class GameMaster extends React.Component {
     super(props);
     this.state = { 
       playerOneName:"" ,
+      numbersPlayerOnePlay: 0,
       playerTwoName:"",
+      numbersPlayerTwoPlay: 0,
       flag: false 
   }
     this.nameOneChangeHandler = this.nameOneChangeHandler.bind(this);
@@ -22,20 +24,25 @@ class GameMaster extends React.Component {
     this.setState({playerTwoName: e.target.value})
   }
   PlayerOneEventHandler(e){    
-    this.setState({flag: !this.state.flag})
-
+    this.setState((prevState) => ({
+        numbersPlayerOnePlay: prevState.numbersPlayerOnePlay + 1,
+        flag: !this.state.flag
+    }));
 }
 PlayerTwoEventHandler(e)
 {
-  this.setState({flag: !this.state.flag})
+    this.setState((prevState) => ({
+        numbersPlayerTwoPlay: prevState.numbersPlayerTwoPlay + 1,
+        flag: !this.state.flag
+    }));
 }
   render() {
       return (
           <div >
             <div>
-              <PlayerOne name= {this.state.playerOneName} flag={this.state.flag} PlayerOneEventHandler={this.PlayerOneEventHandler}/>
+              <PlayerOne name= {this.state.playerOneName} numbersPlay = {this.state.numbersPlayerOnePlay} flag={this.state.flag} PlayerOneEventHandler={this.PlayerOneEventHandler}/>
               <br/>
-              <PlayerTwo name= {this.state.playerTwoName} flag={this.state.flag} PlayerTwoEventHandler={this.PlayerTwoEventHandler}/>
+              <PlayerTwo name= {this.state.playerTwoName} numbersPlay = {this.state.numbersPlayerTwoPlay} flag={this.state.flag} PlayerTwoEventHandler={this.PlayerTwoEventHandler}/>
             </div>
             <br/>
             <div>
